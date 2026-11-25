@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>Global Equity Screens · 25 November 2026</title>
+<style>
+:root{--bg:#000;--panel:#101010;--panel2:#161616;--raise:#1c1c1c;--line:#2a2a2a;--amber:#fb8b1e;--amber-dim:#c96f12;--amber-soft:rgba(251,139,30,.12);--text:#e8e8e8;--muted:#9a9a9a;--faint:#5c5c5c;--blue:#4da3ff;--neg:#ff433d}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+header{background:var(--panel);border-bottom:2px solid var(--amber)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-top:20px}
+h1{margin:0;font-size:21px;font-weight:650;letter-spacing:.01em;color:var(--amber)}
+.meta{color:var(--muted);font-size:12.5px;margin-top:4px}
+.runs{color:var(--muted);font-size:12.5px}
+.runs select{margin-left:6px;background:var(--raise);color:var(--text);border:1px solid var(--line);border-radius:3px;padding:4px 8px;font:inherit}
+nav{display:flex;gap:2px;margin-top:18px;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;padding:9px 16px;font-weight:550;border-radius:3px 3px 0 0;white-space:nowrap}
+nav a:hover{color:var(--text)}
+nav a.active{background:var(--amber);color:#000}
+nav .n{display:inline-block;min-width:22px;margin-left:6px;padding:0 6px;border-radius:9px;background:var(--raise);color:var(--muted);font-size:11.5px;text-align:center}
+nav a.active .n{background:rgba(0,0,0,.18);color:#000}
+main.wrap{padding-top:28px;padding-bottom:48px}
+h2{margin:0 0 4px;font-size:19px;color:var(--text)}
+.thesis{color:var(--muted);margin:0 0 12px;max-width:820px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-top:2px solid var(--amber);border-radius:4px;padding:20px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,background .15s}
+.card:hover{background:var(--panel2);border-color:var(--amber-dim)}
+.card h3{margin:0;font-size:15px;color:var(--text);letter-spacing:.01em}
+.card .num{font-size:34px;font-weight:650;color:var(--amber);line-height:1;font-variant-numeric:tabular-nums}
+.card .num small{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.card .top-names{font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+.card .top-names b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.card .open{margin-top:auto;color:var(--blue);font-weight:550;font-size:13px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.chip{background:var(--amber-soft);color:var(--amber);border:1px solid rgba(251,139,30,.35);border-radius:3px;padding:2px 9px;font-size:12.5px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.toolbar input,.toolbar select{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:7px 10px;font:inherit;color:var(--text)}
+.toolbar input::placeholder{color:var(--faint)}
+.toolbar input:focus,.toolbar select:focus{outline:1px solid var(--amber);border-color:var(--amber)}
+.toolbar input{width:260px}
+.toolbar .count{color:var(--muted);margin-left:auto;font-size:13px}
+.toolbar button{border:1px solid var(--amber);background:transparent;border-radius:3px;padding:7px 12px;font:inherit;cursor:pointer;color:var(--amber);font-weight:600}
+.toolbar button:hover{background:var(--amber);color:#000}
+.table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:auto;max-height:calc(100vh - 260px)}
+table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}
+th{position:sticky;top:0;background:var(--raise);color:var(--amber);font-weight:600;font-size:12px;letter-spacing:.02em;text-align:left;padding:10px 12px;cursor:pointer;user-select:none;white-space:nowrap;border-bottom:1px solid var(--line)}
+th:hover{color:#ffb066}
+th.num{text-align:right}
+th .arrow{opacity:.4;margin-left:4px;font-size:10px}
+th.sorted{color:#fff}
+th.sorted .arrow{opacity:1;color:var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid #1d1d1d;white-space:nowrap}
+td.num{text-align:right}
+td.neg{color:var(--neg)}
+td.na{color:var(--faint)}
+td:first-child{font-weight:550;color:#fff}
+tbody tr:nth-child(even) td{background:#0b0b0b}
+tbody tr:hover td{background:var(--amber-soft)}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+.notes{margin-top:28px;color:var(--muted);font-size:12.5px}
+.notes b{color:var(--text)}
+.notes ol{padding-left:18px;margin:6px 0 0}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#333;border-radius:5px}::-webkit-scrollbar-track{background:transparent}
+@media (max-width:640px){.wrap{padding:0 16px}.toolbar input{width:100%}.toolbar .count{margin-left:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h1>Global Equity Screens</h1>
+        <div class="meta" id="meta"></div>
+      </div>
+      <label class="runs">Run <select id="runs"></select></label>
+    </div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+<main class="wrap" id="main"></main>
+<script>
+const DATA = {"asOf":"25 November 2026","runDate":"2026-11-25","runs":[{"date":"2026-11-25","href":"2026-11-25.html"},{"date":"2026-11-23","href":"2026-11-23.html"}],"home":"../index.html","screens":[{"key":"negative_ev","title":"Net-Cash Large Caps","thesis":"Non-financial companies whose cash exceeds market value plus debt, so the market is valuing the operating business below zero.","criteria":["Market cap > $5bn","Enterprise value < 0","Financials excluded (bank and insurer EV is not comparable)"],"columns":[{"label":"Company","fmt":"text"},{"label":"RIC","fmt":"text"},{"label":"Country","fmt":"text"},{"label":"Sector","fmt":"text"},{"label":"Market Cap ($bn)","fmt":"usd_bn"},{"label":"Enterprise Value ($bn)","fmt":"usd_bn"},{"label":"EV / Market Cap","fmt":"ratio"}],"rows":[["Wise Group PLC","WSE.OQ","United Kingdom","Industrials",11.57,-22.19,-1.918],["Chery Automobile Co Ltd","9973.HK","China","Consumer Cyclicals",14.97,-1.18,-0.079]],"sort":{"label":"EV / Market Cap","dir":"asc"}},{"key":"cash_flow_and_dividend","title":"High Cash Yield","thesis":"Large caps generating strong free cash flow relative to their size while paying a high dividend.","criteria":["Market cap > $3bn","Dividend yield > 5%","Free cash flow yield (LTM FCF / market cap) > 10%"],"columns":[{"label":"Company","fmt":"text"},{"label":"RIC","fmt":"text"},{"label":"Country","fmt":"text"},{"label":"Sector","fmt":"text"},{"label":"Market Cap ($bn)","fmt":"usd_bn"},{"label":"FCF, LTM ($bn)","fmt":"usd_bn"},{"label":"FCF Yield (%)","fmt":"pct"},{"label":"Dividend Yield (%)","fmt":"pct"}],"rows":[["China Taiping Insurance Holdings Co Ltd","0966.HK","Hong Kong","Financials",7.49,6.24,83.3,7.32],["Volkswagen AG","VOWG.DE","Germany","Consumer Cyclicals",34.19,24.96,73.01,8.37],["ZIM Integrated Shipping Services Ltd","ZIM.N","Israel","Industrials",3.68,1.88,51.13,10.5],["China Resources Pharmaceutical Group Ltd","3320.HK","Hong Kong","Healthcare",3.47,1.52,43.89,5.55],["CITIC Ltd","0267.HK","China","Financials",43.52,16.17,37.16,5.74],["Huishang Bank Corp Ltd","3698.HK","China","Financials",7.71,2.52,32.7,6.47],["Mercedes-Benz Group AG","MBGn.DE","Germany","Consumer Cyclicals",39.44,12.68,32.14,9.37],["Aker ASA","AKER.OL","Norway","Energy",7.8,2.28,29.26,5.62],["China Reinsurance (Group) Corporation","1508.HK","China","Financials",5.99,1.73,28.96,7.06],["China Gas Holdings Ltd","0384.HK","Hong Kong","Utilities",3.15,0.86,27.25,7.69],["Jardine Matheson Southeast Asia Limited","JARM.SI","Singapore","Consumer Non-Cyclicals",7.05,1.9,26.93,6.12],["KIWOOM Securities Co., Ltd.","039490.KS","Korea; Republic (S. Korea)","Financials",3.86,1.04,26.91,5.81],["Emaar Development PJSC","EMAARDEV.DU","United Arab Emirates","Real Estate",16.05,4.28,26.63,6.79],["Localiza Rent a Car S.A.","RENT3.SA","Brazil","Industrials",5.4,1.4,25.85,7.47],["Plains GP Holdings LP","PAGP.OQ","United States of America","Energy",5.05,1.29,25.48,6.55],["Renault SA","RENA.PA","France","Consumer Cyclicals",8.63,2.19,25.36,8.22],["Korea Investment Holdings Co Ltd","071050.KS","Korea; Republic (S. Korea)","Financials",5.63,1.42,25.13,6.82],["HD Korea Shipbuilding & Offshore Engineering Co Ltd","009540.KS","Korea; Republic (S. Korea)","Industrials",11.67,2.82,24.14,6.93],["PCCW Ltd","0008.HK","Hong Kong","Technology",5.0,1.16,23.2,7.54],["Samsung Securities Co Ltd","016360.KS","Korea; Republic (S. Korea)","Financials",4.58,1.04,22.8,5.67],["Bayerische Motoren Werke Aktiengesellschaft","BMWG.DE","Germany","Consumer Cyclicals",35.96,7.94,22.07,8.26],["PZU SA","PZU.WA","Poland","Financials",14.74,3.23,21.94,6.9],["Emaar Properties PJSC","EMAR.DU","United Arab Emirates","Real Estate",31.24,6.76,21.63,7.91],["China State Construction International Holdings Ltd","3311.HK","Hong Kong","Industrials",5.47,1.16,21.23,7.58],["DELEK GROUP LTD.","DLEKG.TA","Israel","Energy",4.42,0.94,21.14,6.85],["Petroleo Brasileiro SA Petrobras","PETR4.SA","Brazil","Energy",95.36,19.48,20.43,12.51],["C&D International Investment Group Ltd","1908.HK","Hong Kong","Real Estate",3.63,0.73,20.14,7.7],["Schaeffler AG","SHA0n.DE","Germany","Consumer Cyclicals",5.09,1.01,19.89,6.1],["Impala Platinum Holdings Limited","IMPJ.J","South Africa","Basic Materials",8.65,1.72,19.87,11.15],["China Communications Services Corp Ltd","0552.HK","China","Industrials",3.19,0.63,19.67,7.01],["LEG Immobilien SE","LEGn.DE","Germany","Real Estate",4.28,0.83,19.46,5.74],["China Everbright Environment Group Ltd","0257.HK","Hong Kong","Utilities",4.09,0.78,19.01,5.28],["WH Group Limited","0288.HK","Hong Kong","Consumer Non-Cyclicals",11.18,2.09,18.66,9.0],["Far East Horizon Limited","3360.HK","Hong Kong","Financials",3.11,0.57,18.21,10.95],["Mobile Telecommunications Company KSCP","ZAIN.KW","Kuwait","Technology",7.97,1.45,18.16,7.33],["Beijing Enterprises Holdings Ltd","0392.HK","Hong Kong","Utilities",4.87,0.88,18.11,5.25],["NH Investment & Securities Co., Ltd.","005940.KS","Korea; Republic (S. Korea)","Financials",6.3,1.14,18.04,5.73],["Sunshine Insurance Group Co Ltd","6963.HK","China","Financials",4.98,0.89,17.8,6.43],["China Resources Gas Group Ltd","1193.HK","Hong Kong","Utilities",4.63,0.77,16.63,6.1],["PT Bank Negara Indonesia (Persero) Tbk","BBNI.JK","Indonesia","Financials",7.26,1.2,16.49,9.79],["Astra International Tbk PT","ASII.JK","Indonesia","Consumer Non-Cyclicals",12.33,2.0,16.24,7.16],["Ampol Limited","ALD.AX","Australia","Energy",5.37,0.85,15.75,10.18],["Mazda Motor Corporation","7261.T","Japan","Consumer Cyclicals",4.3,0.64,15.0,5.12],["Vonovia SE","VNAn.DE","Germany","Real Estate",15.88,2.38,15.0,7.32],["PICC Property and Casualty Co Ltd","2328.HK","China","Financials",48.02,7.14,14.86,5.35],["China Tower Corp Ltd","0788.HK","China","Industrials",19.34,2.87,14.84,6.78],["Axia Energia SA","AXIA3.SA","Brazil","Utilities",21.17,3.14,14.83,10.17],["Sanlam Ltd","SLMJ.J","South Africa","Financials",9.58,1.4,14.59,6.41],["Turkiye Petrol Rafinerileri A.S.","TUPRS.IS","Turkey","Energy",12.19,1.73,14.18,5.35],["Kunlun Energy Company Ltd","0135.HK","Hong Kong","Utilities",8.32,1.18,14.16,5.13],["Synnex Technology International Corp","2347.TW","Taiwan","Technology",3.54,0.49,13.9,5.61],["PT Adaro Andalan Indonesia Tbk","AADI.JK","Indonesia","Energy",4.23,0.59,13.87,10.12],["Energy of Minas Gerais Co","CMIG4.SA","Brazil","Utilities",6.23,0.86,13.77,10.53],["Carrefour SA","CARR.PA","France","Consumer Non-Cyclicals",11.06,1.51,13.68,7.04],["Sime Darby Bhd","SIME.KL","Malaysia","Consumer Non-Cyclicals",3.88,0.53,13.68,5.83],["Hanjaya Mandala Sampoerna Tbk PT","HMSP.JK","Indonesia","Consumer Non-Cyclicals",4.02,0.54,13.54,8.94],["Bac Holding International Corp","BHI.CN","Panama","Financials",4.27,0.57,13.42,8.02],["Evergreen Marine Corp Taiwan Ltd","2603.TW","Taiwan","Industrials",16.59,2.2,13.24,6.23],["Guangdong Investment Ltd","0270.HK","Hong Kong","Utilities",6.66,0.85,12.79,6.1],["Arab Bank PLC","ARBK.AM","Jordan","Financials",6.65,0.85,12.78,5.38],["Sinotruk (Hong Kong) Ltd","3808.HK","China","Industrials",11.6,1.47,12.71,6.07],["Halyk Bank AO","HSBK.KZ","Kazakhstan","Financials",8.95,1.14,12.7,15.63],["HKT Trust and HKT Limited","6823.HK","Hong Kong","Technology",12.05,1.52,12.64,6.67],["Wendel SE","MWDP.PA","France","Financials",3.92,0.49,12.5,7.33],["JB Financial Group Co Ltd","175330.KS","Korea; Republic (S. Korea)","Financials",3.46,0.43,12.49,6.32],["Asustek Computer Inc","2357.TW","Taiwan","Technology",17.33,2.15,12.41,5.12],["Porto Seguro SA","PSSA3.SA","Brazil","Financials",4.57,0.56,12.33,6.1],["Bangkok Bank Public Company Limited","BBL.BK","Thailand","Financials",10.02,1.22,12.17,5.54],["Kia Corporation","000270.KS","Korea; Republic (S. Korea)","Consumer Cyclicals",27.96,3.34,11.96,7.11],["Cathay Pacific Airways Limited","0293.HK","Hong Kong","Industrials",11.42,1.35,11.82,5.91],["Fortune Vietnam Joint Stock Commercial Bank","LPB.HM","Vietnam","Financials",3.95,0.47,11.8,8.76],["Alior Bank SA","ALRR.WA","Poland","Financials",4.4,0.52,11.76,6.51],["Samsung Card Co Ltd","029780.KS","Korea; Republic (S. Korea)","Financials",3.51,0.41,11.55,6.91],["Banco BBVA Peru SA","BBVAC1.LM","Peru","Financials",6.63,0.75,11.36,5.19],["freenet AG","FNTGn.DE","Germany","Technology",3.21,0.36,11.13,8.4],["BNP Paribas Bank Polska SA","BNP1.WA","Poland","Financials",6.41,0.71,11.13,5.78],["China Hongqiao Group Ltd","1378.HK","China","Basic Materials",20.12,2.23,11.1,10.07],["PTT Public Company Limited","PTT.BK","Thailand","Energy",30.91,3.41,11.05,7.51],["Posco International Corp","047050.KS","Korea; Republic (S. Korea)","Industrials",6.04,0.67,11.04,5.29],["Fertiglobe PLC","FERTIGLB.AD","United Arab Emirates","Basic Materials",5.06,0.56,11.0,5.68],["City Developments Limited","CTDM.SI","Singapore","Real Estate",4.32,0.47,10.84,5.07],["Laopu Gold Co., Ltd.","6181.HK","China","Consumer Cyclicals",5.98,0.64,10.77,12.84],["ISA Energia Brasil SA","ISAE4.SA","Brazil","Utilities",3.46,0.37,10.76,7.56],["KT Corporation","030200.KS","Korea; Republic (S. Korea)","Technology",8.65,0.93,10.76,5.33],["NOS SGPS SA","NOS.LS","Portugal","Technology",3.16,0.33,10.46,8.01],["Ultrapar Participacoes SA","UGPA3.SA","Brazil","Energy",5.71,0.6,10.45,7.45],["Oil and Gas Development Co Ltd","OGDC.PSX","Pakistan","Energy",4.86,0.51,10.44,5.93],["Yadea Group Holdings Ltd.","1585.HK","China","Consumer Cyclicals",3.34,0.35,10.43,6.39],["Bank Handlowy w Warszawie SA","BHW.WA","Poland","Financials",3.93,0.4,10.27,7.99],["Tele2 AB","TEL2b.ST","Sweden","Technology",10.8,1.11,10.26,6.51],["Harmony Gold Mining Company Limited","HARJ.J","South Africa","Basic Materials",8.88,0.89,10.03,5.29],["Bank of the Philippine Islands","BPI.PS","Philippines","Financials",8.09,0.81,10.02,5.31]],"sort":{"label":"FCF Yield (%)","dir":"desc"}},{"key":"quality_compounders","title":"Quality Compounders","thesis":"Companies with consistently high returns on capital that still trade cheaply relative to their earnings growth.","criteria":["Market cap > $1bn","PEG ratio between 0 and 1 (negative PEGs excluded)","ROIC > 20% in the latest fiscal year","ROIC averaging > 20% over the last 5 fiscal years (all 5 years must be reported)"],"columns":[{"label":"Company","fmt":"text"},{"label":"RIC","fmt":"text"},{"label":"Country","fmt":"text"},{"label":"Sector","fmt":"text"},{"label":"Market Cap ($bn)","fmt":"usd_bn"},{"label":"PEG Ratio","fmt":"ratio"},{"label":"Latest FY ROIC (%)","fmt":"pct"},{"label":"ROIC 5Y Avg (%)","fmt":"pct"}],"rows":[["Garrett Motion Inc.","GTX.OQ","United States of America","Consumer Cyclicals",3.77,0.512,55.93,126.33],["JF SmartInvest Holdings Ltd","9636.HK","China","Technology",1.13,0.904,40.22,123.87],["NVIDIA Corporation","NVDA.OQ","United States of America","Technology",3744.66,0.203,94.88,62.91],["Rasan Information Technology Company","8313.SE","Saudi Arabia","Technology",2.71,0.81,43.88,62.83],["Kaspi.kz AO","KSPI.KZ","Kazakhstan","Technology",16.69,0.53,45.99,62.79],["International Games System Co Ltd","3293.TWO","Taiwan","Consumer Cyclicals",6.63,0.898,61.21,59.42],["ANYCOLOR Inc.","5032.T","Japan","Consumer Cyclicals",1.12,0.75,57.54,55.85],["Acadian Asset Management Inc.","AAMI.N","United States of America","Financials",2.95,0.344,28.55,53.31],["Scancom PLC","MTNGH.GH","Ghana","Technology",7.38,0.213,55.69,45.85],["ASPEED Technology Inc.","5274.TWO","Taiwan","Technology",11.1,0.534,57.37,45.16],["Hpsp Co., Ltd","403870.KQ","Korea; Republic (S. Korea)","Technology",2.38,0.386,24.71,43.92],["XTB S.A.","XTB.WA","Poland","Financials",3.08,0.128,31.76,42.72],["Turkiye Sigorta AS","TURSG.IS","Turkey","Financials",1.14,0.151,44.11,42.63],["KLA Corporation","KLAC.OQ","United States of America","Technology",174.14,0.65,44.5,41.76],["Lasertec Corporation","6920.T","Japan","Technology",17.36,0.745,33.9,41.63],["Coal India Limited","COAL.NS","India","Energy",25.54,0.992,25.26,40.66],["NOVATEK MICROELECTRONICS CORP.","3034.TW","Taiwan","Technology",7.93,0.947,23.93,39.99],["Lam Research Corporation","LRCX.OQ","United States of America","Technology",245.04,0.465,48.46,39.76],["Atlanta Electricals Ltd","ATLE.NS","India","Industrials",1.15,0.838,30.67,39.73],["UNITED INTEGRATED SERVICES CO., LTD.","2404.TW","Taiwan","Industrials",5.06,0.181,52.87,39.08],["Hindustan Zinc Ltd","HZNC.NS","India","Basic Materials",23.63,0.498,51.55,38.33],["Delta Corp Ltd","DLTA.ZI","Zimbabwe","Consumer Non-Cyclicals",1.62,0.633,43.13,38.12],["Bradsaude S.A.","SAUD3.SA","Brazil","Healthcare",1.51,0.687,47.9,38.11],["ASML Holding N.V.","ASML.AS","Netherlands","Technology",508.25,0.621,36.93,38.1],["ACCTON TECHNOLOGY CORPORATION","2345.TW","Taiwan","Technology",25.11,0.314,52.79,37.73],["Astor Enerji A.S.","ASTOR.IS","Turkey","Industrials",2.95,0.29,25.96,37.65],["BellRing Brands, Inc.","BRBR.N","United States of America","Consumer Non-Cyclicals",1.76,0.479,33.11,37.55],["Brinker International Inc","EAT.N","United States of America","Consumer Cyclicals",8.12,0.783,61.18,37.04],["Expeditors International of Washington Inc","EXPD.N","United States of America","Industrials",25.54,0.843,34.89,36.82],["Global Unichip Corporation","3443.TW","Taiwan","Technology",20.62,0.693,30.6,36.67],["APR Co Ltd","278470.KS","Korea; Republic (S. Korea)","Consumer Non-Cyclicals",8.16,0.313,59.73,36.16],["Cury Construtora e Incorporadora S.A.","CURY3.SA","Brazil","Real Estate",1.31,0.513,41.42,35.7],["Ingersoll-Rand (India) Ltd","INGR.NS","India","Industrials",1.32,0.326,41.26,35.5],["HANMI Semiconductor Co., Ltd.","042700.KS","Korea; Republic (S. Korea)","Technology",10.47,0.917,34.66,35.38],["Booking Holdings Inc.","BKNG.OQ","United States of America","Consumer Cyclicals",109.06,0.917,51.86,35.13],["Engro Fertilizers Ltd","ENGR.PSX","Pakistan","Basic Materials",1.05,0.846,27.05,34.56],["Next Vision Stabilized Systems Ltd","NXSN.TA","Israel","Technology",4.74,0.316,27.46,34.35],["Atour Lifestyle Holdings Limited","ATAT.OQ","China","Consumer Cyclicals",5.33,0.665,47.48,34.34],["Theon International PLC","THEON.AS","Cyprus","Industrials",2.3,0.998,20.37,34.12],["DLocal Limited","DLO.OQ","Uruguay","Industrials",3.52,0.523,32.75,33.91],["Grameenphone Ltd","GRAE.DH","Bangladesh","Technology",2.45,0.774,26.64,33.83],["Yankey Engineering Co Ltd","6691.TW","Taiwan","Industrials",2.01,0.2,42.54,33.76],["Applied Materials Inc","AMAT.OQ","United States of America","Technology",256.94,0.449,34.65,33.43],["Netweb Technologies India Ltd","NETE.NS","India","Technology",2.57,0.997,27.53,32.91],["Eoptolink Technology Inc., Ltd.","300502.SZ","China","Technology",37.95,0.122,71.78,32.68],["Ameriprise Financial Inc","AMP.N","United States of America","Financials",43.22,0.784,33.07,32.27],["RAKUS Co., Ltd.","3923.T","Japan","Technology",2.18,0.569,55.13,32.21],["Mueller Industries Inc","MLI.N","United States of America","Industrials",11.47,0.892,25.33,32.05],["Gartner, Inc.","IT.N","United States of America","Technology",11.36,0.917,23.13,31.88],["ADVANTEST CORPORATION","6857.T","Japan","Technology",109.14,0.341,53.25,31.62],["Mari Energies Ltd","MARE.PSX","Pakistan","Energy",3.15,0.838,27.78,31.35],["BUA Foods PLC","BUAFOODS.LG","Nigeria","Consumer Non-Cyclicals",10.11,0.897,58.21,30.77],["Herbalife Ltd","HLF.N","Cayman Islands","Consumer Non-Cyclicals",1.71,0.432,27.59,30.75],["Ningbo Deye Technology Corp","605117.SS","China","Energy",14.12,0.287,26.19,30.6],["Arista Networks, Inc.","ANET.N","United States of America","Technology",212.96,0.966,31.4,30.52],["Presco PLC","PRESCO.LG","Nigeria","Consumer Non-Cyclicals",1.43,0.688,29.31,30.12],["Adobe Inc","ADBE.OQ","United States of America","Technology",90.33,0.64,39.1,29.93],["Tokyo Electron Limited","8035.T","Japan","Technology",114.99,0.506,28.83,29.74],["Fortune Electric Co., Ltd.","1519.TW","Taiwan","Industrials",4.57,0.848,38.67,29.7],["Gigacloud Technology Inc","GCT.OQ","United States of America","Technology",2.1,0.456,30.82,29.4],["Guaranty Trust Holding Company PLC","GTCO.LG","Nigeria","Financials",3.0,0.381,26.0,28.74],["Alphabet Inc.","GOOGL.OQ","United States of America","Technology",3416.86,0.579,32.99,28.65],["MTN Uganda Ltd","MTNU.UG","Uganda","Technology",2.4,0.407,31.1,28.6],["Yealink Xiamen Network Technology Co Ltd","300628.SZ","China","Technology",7.56,0.891,28.37,28.57],["XPEL, Inc.","XPEL.OQ","United States of America","Consumer Cyclicals",1.07,0.911,20.08,28.55],["Comfort Systems USA, Inc.","FIX.N","United States of America","Industrials",38.36,0.401,47.12,28.39],["Oracle Financial Services Software Ltd","ORCL.NS","India","Technology",8.7,0.897,32.47,28.38],["Shelli Grup ED","SLYG.BB","Bulgaria","Technology",1.28,0.612,25.47,28.16],["Paycom Software, Inc.","PAYC.N","United States of America","Technology",10.94,0.723,27.57,28.15],["Zangge Mining Co Ltd","000408.SZ","China","Basic Materials",13.84,0.148,25.42,28.09],["Ciments du Maroc SA","CMA.CS","Morocco","Basic Materials",2.1,0.652,28.88,27.93],["Xiamen Amoytop Biotech Co Ltd","688278.SS","China","Healthcare",2.46,0.464,32.83,27.85],["Abu Dhabi Islamic Bank Egypt SAE","ADIB.CA","Egypt","Financials",1.28,0.654,32.36,27.79],["Super Group (SGHC) Ltd","SGHC.N","Guernsey","Consumer Cyclicals",5.32,0.2,29.19,27.78],["Lockheed Martin Corporation","LMT.N","United States of America","Industrials",135.51,0.942,21.68,27.44],["EMCOR Group, Inc.","EME.N","United States of America","Industrials",27.67,0.886,37.86,27.14],["Precision Tsugami (China) Corporation Ltd","1651.HK","China","Industrials",1.46,0.347,32.34,27.0],["Suzhou TFC Optical Communication Co., Ltd.","300394.SZ","China","Technology",21.42,0.484,42.08,26.94],["DRDGOLD Ltd","DRDJ.J","South Africa","Basic Materials",1.86,0.986,39.31,26.28],["Electrical Industries Company JSC","1303.SE","Saudi Arabia","Industrials",3.0,0.793,53.53,26.28],["Eli Lilly and Company","LLY.N","United States of America","Healthcare",1324.18,0.949,36.52,26.03],["Wiwynn Corporation","6669.TW","Taiwan","Technology",24.31,0.226,30.72,25.77],["Dangote Cement PLC","DANGCEM.LG","Nigeria","Basic Materials",16.48,0.518,29.16,25.74],["West African Resources Ltd","WAF.AX","Australia","Basic Materials",2.37,0.104,25.05,25.62],["GoDaddy Inc.","GDDY.N","United States of America","Technology",12.4,0.666,23.68,25.62],["Pan African Resources PLC","PAFR.L","United Kingdom","Basic Materials",3.0,0.23,40.02,25.51],["Taiwan Semiconductor Manufacturing Company Limited","2330.TW","Taiwan","Technology",1691.84,0.424,29.04,25.45],["Disco Corp","6146.T","Japan","Technology",27.66,0.727,25.08,25.0],["KING SLIDE WORKS CO., LTD.","2059.TW","Taiwan","Technology",18.81,0.176,37.28,24.96],["VAT Group AG","VACN.S","Switzerland","Industrials",17.56,0.793,21.33,24.78],["Halyk Bank AO","HSBK.KZ","Kazakhstan","Financials",8.95,0.745,25.12,24.59],["NMDC Ltd","NMDC.NS","India","Basic Materials",6.31,0.791,20.23,24.53],["YETI Holdings, Inc.","YETI.N","United States of America","Consumer Cyclicals",2.75,0.897,21.48,24.46],["SILICON 2 Co.,Ltd.","257720.KQ","Korea; Republic (S. Korea)","Technology",1.41,0.302,34.84,24.44],["Misr Fertilizers Production Company","MFPC.CA","Egypt","Basic Materials",1.95,0.381,24.17,24.37],["Kingnet Network Co Ltd","002517.SZ","China","Technology",4.19,0.37,22.63,24.22],["Qatar National Bank ALAHLI S.A.E","QNBE.CA","Egypt","Financials",2.25,0.265,27.83,23.91],["MEDIATEK INC.","2454.TW","Taiwan","Technology",177.51,0.837,25.02,23.85],["Hanjaya Mandala Sampoerna Tbk PT","HMSP.JK","Indonesia","Consumer Non-Cyclicals",4.02,0.569,23.02,23.71],["L and K Engineering (Suzhou) Co., Ltd.","603929.SS","China","Industrials",2.41,0.132,42.9,23.65],["Safaricom PLC","SCOM.NR","Kenya","Technology",10.46,0.599,27.16,23.27],["WinWay Technology Co.,Ltd.","6515.TW","Taiwan","Technology",3.33,0.34,27.19,23.18],["Southern Copper Corp","SCCO.N","United States of America","Basic Materials",116.77,0.843,27.4,23.09],["Dexerials Corp","4980.T","Japan","Technology",2.02,0.706,23.1,23.07],["Leeno Industrial Inc","058470.KQ","Korea; Republic (S. Korea)","Technology",2.6,0.984,22.44,23.07],["Casablanca Travaux Generaux De Construction De SA","TGC.CS","Morocco","Industrials",2.16,0.999,23.81,22.65],["Evercore Inc.","EVR.N","United States of America","Financials",11.56,0.712,22.66,22.59],["National Aluminium Co Ltd","NALU.NS","India","Basic Materials",5.69,0.44,29.12,22.44],["FOSITEK CORP.","6805.TW","Taiwan","Technology",3.19,0.279,30.67,22.27],["Vietnam Dairy Products Joint Stock Company","VNM.HM","Vietnam","Consumer Non-Cyclicals",4.26,0.943,21.64,22.24],["CHROMA ATE INC.","2360.TW","Taiwan","Industrials",13.03,0.362,35.63,22.1],["GOLD CIRCUIT ELECTRONICS LTD.","2368.TW","Taiwan","Technology",14.57,0.276,24.33,21.87],["Mega Union Technology Inc","6944.TW","Taiwan","Industrials",1.43,0.269,33.8,21.75],["Capricorn Metals Ltd","CMM.AX","Australia","Basic Materials",3.5,0.464,25.02,21.7],["ELITE MATERIAL CO., LTD.","2383.TW","Taiwan","Technology",36.48,0.173,24.45,21.67],["Shenzhen Sinexcel Electric Co Ltd","300693.SZ","China","Industrials",1.35,0.514,22.07,21.52],["santec Holdings Corporation","6777.T","Japan","Technology",1.06,0.353,27.82,21.49],["Netflix, Inc.","NFLX.OQ","United States of America","Technology",241.74,0.75,28.63,21.07],["Jentech Precision Industrial Co Ltd","3653.TW","Taiwan","Technology",18.63,0.547,28.02,20.92],["Powell Industries Inc","POWL.OQ","United States of America","Industrials",5.61,0.865,26.65,20.86],["Lafarge Africa PLC","HBMNG.LG","Nigeria","Basic Materials",3.81,0.254,45.47,20.74],["Innodisk Corp","5289.TWO","Taiwan","Technology",2.29,0.003,20.89,20.72],["Jabil Inc.","JBL.N","United States of America","Technology",23.34,0.424,23.32,20.69],["Societe d'Exploitation des Ports SA","MSA.CS","Morocco","Industrials",5.7,0.976,28.29,20.65],["Shanghai Conant Optical Co Ltd","2276.HK","China","Healthcare",2.06,0.848,22.77,20.6],["Dell Technologies Inc","DELL.N","United States of America","Technology",187.74,0.141,27.62,20.53],["Emerald Resources NL","EMR.AX","Australia","Basic Materials",2.63,0.187,32.13,20.37],["Zhejiang CFMOTO Power Co Ltd","603129.SS","China","Consumer Cyclicals",7.22,0.602,23.2,20.31],["Recruit Holdings Co.,Ltd.","6098.T","Japan","Industrials",157.38,0.666,27.92,20.24],["K92 Mining Inc.","KNT.TO","Canada","Basic Materials",3.74,0.305,39.72,20.14],["Screen Holdings Co Ltd","7735.T","Japan","Technology",8.38,0.341,20.06,20.03]],"sort":{"label":"ROIC 5Y Avg (%)","dir":"desc"}}]};
+const state = {};
+const NUM = new Set(["usd_bn","pct","ratio"]);
+const DIGITS = {usd_bn:1,pct:1,ratio:2};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtVal = (v, f) => v === null ? "–" : NUM.has(f) ? v.toLocaleString("en-US",{minimumFractionDigits:DIGITS[f],maximumFractionDigits:DIGITS[f]}) : esc(v);
+
+document.getElementById("meta").textContent =
+  `Run ${DATA.asOf} · Active, listed, primary-line equities worldwide · Source: LSEG Workspace · USD`;
+const runs = document.getElementById("runs");
+runs.innerHTML = DATA.runs.map(r => `<option value="${r.href}" ${r.date===DATA.runDate?"selected":""}>${r.date}${r===DATA.runs[0]?" (latest)":""}</option>`).join("");
+runs.onchange = () => { location.href = runs.value + location.hash; };
+
+function nav(active){
+  const tabs = [{key:"summary",title:"Summary"}].concat(DATA.screens);
+  document.getElementById("nav").innerHTML = tabs.map(t =>
+    `<a href="#${t.key}" class="${t.key===active?"active":""}">${esc(t.title)}${t.rows?`<span class="n">${t.rows.length}</span>`:""}</a>`).join("");
+}
+
+function summary(){
+  const cards = DATA.screens.map(s => {
+    const top = s.rows.slice(0,5).map(r => esc(r[0] ?? r[1])).join("<br>") || "None this run";
+    return `<a class="card" href="#${s.key}">
+      <h3>${esc(s.title)}</h3>
+      <div class="num">${s.rows.length}<small>companies</small></div>
+      <div class="thesis" style="margin:0">${esc(s.thesis)}</div>
+      <ul>${s.criteria.map(c=>`<li>${esc(c)}</li>`).join("")}</ul>
+      <div class="top-names"><b>Top names by ${esc(s.sort.label)}</b>${top}</div>
+      <span class="open">View all →</span></a>`;
+  }).join("");
+  return `<div class="cards">${cards}</div>
+    <div class="notes"><b>Notes</b><ol>
+      <li>Screens are a starting point for research, not recommendations. Each result needs fundamental review.</li>
+      <li>Market data is as of the run date. Free cash flow is last twelve months; ROIC is by fiscal year.</li>
+      <li>Companies missing any required data point are excluded rather than estimated.</li>
+    </ol></div>`;
+}
+
+function getState(s){
+  if(!state[s.key]){
+    const col = Math.max(0, s.columns.findIndex(c => c.label === s.sort.label));
+    state[s.key] = {q:"", country:"", sector:"", col, dir:s.sort.dir};
+  }
+  return state[s.key];
+}
+
+function filtered(s){
+  const st = getState(s), q = st.q.toLowerCase();
+  const ci = s.columns.findIndex(c=>c.label==="Country"), si = s.columns.findIndex(c=>c.label==="Sector");
+  const rows = s.rows.filter(r =>
+    (!q || r.some(v => v !== null && String(v).toLowerCase().includes(q))) &&
+    (!st.country || r[ci] === st.country) && (!st.sector || r[si] === st.sector));
+  const f = s.columns[st.col].fmt, k = st.dir === "asc" ? 1 : -1;
+  return rows.sort((a,b) => {
+    const x=a[st.col], y=b[st.col];
+    if(x===null) return 1; if(y===null) return -1;
+    return (NUM.has(f) ? x-y : String(x).localeCompare(String(y))) * k;
+  });
+}
+
+function options(s, label, current){
+  const i = s.columns.findIndex(c=>c.label===label);
+  const vals = [...new Set(s.rows.map(r=>r[i]).filter(v=>v!==null))].sort();
+  return `<option value="">All ${label.toLowerCase()==="country"?"countries":"sectors"}</option>` +
+    vals.map(v=>`<option ${v===current?"selected":""}>${esc(v)}</option>`).join("");
+}
+
+function screenView(s){
+  const st = getState(s);
+  return `<h2>${esc(s.title)}</h2><p class="thesis">${esc(s.thesis)}</p>
+    <div class="chips">${s.criteria.map(c=>`<span class="chip">${esc(c)}</span>`).join("")}</div>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Search company, RIC, country…" value="${esc(st.q)}">
+      <select id="country">${options(s,"Country",st.country)}</select>
+      <select id="sector">${options(s,"Sector",st.sector)}</select>
+      <span class="count" id="count"></span>
+      <button id="csv">Download CSV</button>
+    </div>
+    <div class="table-wrap" id="table"></div>`;
+}
+
+function renderTable(s){
+  const st = getState(s), rows = filtered(s);
+  document.getElementById("count").textContent = `${rows.length} of ${s.rows.length} companies`;
+  if(!s.rows.length){ document.getElementById("table").innerHTML = `<div class="empty">No companies met all criteria on this run.</div>`; return; }
+  const head = s.columns.map((c,i) => `<th data-i="${i}" class="${NUM.has(c.fmt)?"num":""} ${i===st.col?"sorted":""}">${esc(c.label)}<span class="arrow">${i===st.col?(st.dir==="asc"?"▲":"▼"):"↕"}</span></th>`).join("");
+  const body = rows.map(r => `<tr>${r.map((v,i)=>{const f=s.columns[i].fmt;
+    const cls=[NUM.has(f)?"num":"", v===null?"na":"", NUM.has(f)&&v<0?"neg":""].join(" ");
+    return `<td class="${cls}">${fmtVal(v,f)}</td>`;}).join("")}</tr>`).join("");
+  document.getElementById("table").innerHTML = `<table><thead><tr>${head}</tr></thead><tbody>${body || `<tr><td colspan="${s.columns.length}" class="empty">No matches for these filters.</td></tr>`}</tbody></table>`;
+  document.querySelectorAll("th").forEach(th => th.onclick = () => {
+    const i = +th.dataset.i;
+    if(st.col === i) st.dir = st.dir === "asc" ? "desc" : "asc";
+    else { st.col = i; st.dir = NUM.has(s.columns[i].fmt) ? "desc" : "asc"; }
+    renderTable(s);
+  });
+}
+
+function downloadCsv(s){
+  const cell = v => v === null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g,'""')}"` : String(v);
+  const lines = [s.columns.map(c=>cell(c.label)).join(",")].concat(filtered(s).map(r=>r.map(cell).join(",")));
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type:"text/csv"}));
+  a.download = `${s.key}_${DATA.runDate}.csv`; a.click(); URL.revokeObjectURL(a.href);
+}
+
+function route(){
+  const key = location.hash.slice(1) || "summary";
+  const s = DATA.screens.find(x => x.key === key);
+  nav(s ? key : "summary");
+  const main = document.getElementById("main");
+  if(!s){ main.innerHTML = summary(); return; }
+  main.innerHTML = screenView(s);
+  const st = getState(s);
+  document.getElementById("q").oninput = e => { st.q = e.target.value; renderTable(s); };
+  document.getElementById("country").onchange = e => { st.country = e.target.value; renderTable(s); };
+  document.getElementById("sector").onchange = e => { st.sector = e.target.value; renderTable(s); };
+  document.getElementById("csv").onclick = () => downloadCsv(s);
+  renderTable(s);
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
